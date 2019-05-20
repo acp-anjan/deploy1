@@ -1,0 +1,17 @@
+{% extends 'app_cbv/app_cbv_base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>List of Hospitals</h1>
+        <ol>
+        {% for hospital in hospital_list %}
+            <h3><li><a href=" {{ hospital.id }} ">{{ hospital.name_hospital }} </a> </li></h3>
+        {% endfor %}
+        </ol>
+    </div>
+    <a class='btn btn-info' href="{% url 'app_cbv:create' %}">Add Hospital</a>
+</div>
+
+
+{% endblock content %}

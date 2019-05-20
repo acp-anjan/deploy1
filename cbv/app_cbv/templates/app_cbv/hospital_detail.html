@@ -1,0 +1,25 @@
+{% extends 'app_cbv/app_cbv_base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Welcome to Hospital Detail Page</h1>
+        <h2>Hospital Detail:</h2>
+        <p>Name : {{ hospital.name_hospital }} </p>
+        <p>Location : {{ hospital.location_hospital }} </p>
+
+        <ol>
+        {% for patient_query  in hospital.patient_query.all %}
+        <li>Patient Info:</li>
+            <p>Patient Name: {{patient_query.patient_name }} </p>
+            <p>Patient Age : {{ patient_query.age }} </p>
+            <p>Patient Query : {{ patient_query.patient_query }} </p>
+        {% endfor %}
+        </ol>
+    </div>
+</div>
+<div class="container">
+    <p><a class='btn btn-warning' href="{% url 'app_cbv:update' pk=hospital.pk %}">Update</a>
+    <a class='btn btn-danger' href="{% url 'app_cbv:delete' pk=hospital.pk %}">Delete</a></p>
+
+</div>
+{% endblock %}

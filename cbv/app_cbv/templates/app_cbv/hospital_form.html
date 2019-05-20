@@ -1,0 +1,20 @@
+{% extends 'app_cbv/app_cbv_base.html' %}
+
+{% block content %}
+    <div class="container">
+    <div class="jumbotron">
+    {% if not form.instance.pk %}
+        <h1>Create Hospital</h1>
+    {% else %}
+        <h1>Update Hospital</h1>
+    {% endif %}
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class='btn btn-primary' value="Submit" >
+    </form>
+    </div>
+    </div>
+    
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'app_cbv/app_cbv_base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Delete {{ hospital.name_hospital}} ?</h1>
+            <form action="" method="post">
+            {% csrf_token %}
+            <p>
+                <input type="submit" class='btn btn-danger' value='Delete'>
+                <a class='btn btn-warning' href="{% url 'app_cbv:detail' pk=hospital.pk %}">Cancel</a>
+            </p>
+            </form>
+            
+
+        </div>
+    </div>
+{% endblock content %}
